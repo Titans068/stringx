@@ -76,58 +76,62 @@ char *substring(char *str, int start, int length);
 char *substr(char *str, int start, int end);
 
 /**
-
-@brief Returns a substring from the given string, starting from the specified index.
-@param str The original string to extract a substring from.
-@param start The starting index for the substring.
-@return char* The extracted substring, or NULL if the start index is invalid.
+* 
+* @brief Returns a substring from the given string, starting from the specified index.
+* @param str The original string to extract a substring from.
+* @param start The starting index for the substring.
+* @return char* The extracted substring, or NULL if the start index is invalid. The returned string 
+* must be freed by the caller.
 */
 char *substring_s(char *str, int start);
 
 /**
-
-@brief Trims the leading whitespaces from the given string.
-@param s The original string to trim.
-@return char* The trimmed string.
+* 
+* @brief Trims the leading whitespaces from the given string.
+* @param s The original string to trim.
+* @return char* The trimmed string.
 */
 char *ltrim(char *s);
 
 /**
-
-@brief Trims the trailing whitespaces from the given string.
-@param s The original string to trim.
-@return char* The trimmed string.
+* 
+* @brief Trims the trailing whitespaces from the given string.
+* @param s The original string to trim.
+* @return char* The trimmed string. The returned string
+* must be freed by the caller.
 */
 char *rtrim(char *s);
 
 /**
-
-@brief Trims the leading and trailing whitespaces from the given string.
-@param s The original string to trim.
-@return char* The trimmed string.
+* 
+* @brief Trims the leading and trailing whitespaces from the given string.
+* @param s The original string to trim.
+* @return char* The trimmed string.
 */
 char *trim(char *s);
 
 /**
-
-@brief Replaces all occurrences of a given needle string in a haystack string with a replacement string.
-@param haystack The original string to perform the replacements in.
-@param needle The string to replace.
-@param replacement The string to replace the needle with.
-@param max_replacements The maximum number of replacements to perform.
- -1 signifies that all replacements are to be made.
-@return char* The modified string with the replacements performed.
+* 
+* @brief Replaces all occurrences of a given needle string in a haystack string with a replacement string.
+* @param haystack The original string to perform the replacements in.
+* @param needle The string to replace.
+* @param replacement The string to replace the needle with.
+* @param max_replacements The maximum number of replacements to perform.
+*  -1 signifies that all replacements are to be made.
+* @return char* The modified string with the replacements performed. The returned string
+*  must be freed by the caller.
 */
 char *replace(char *haystack, char *needle, char *replacement, int max_replacements);
 
 /**
-
-replaceLast - replaces the last occurrence of a specified string in a given string with another string
-@str: the string to search and replace in
-@target: the string to search for
-@replacement: the string to replace with
-@count: the number of replacements to be made
-Returns a char pointer to the resulting string.
+* 
+* replaceLast - replaces the last occurrence of a specified string in a given string with another string
+* @str: the string to search and replace in
+* @target: the string to search for
+* @replacement: the string to replace with
+* @count: the number of replacements to be made
+* Returns a char pointer to the resulting string. The returned string
+* must be freed by the caller.
 */
 char *replaceLast(const char *str, const char *target, const char *replacement, int count);
 
@@ -135,35 +139,36 @@ char *replaceLast(const char *str, const char *target, const char *replacement, 
  * Removes all non-ASCII characters from a string and returns a char pointer.
  *
  * @param str A constant char pointer representing the input string
- * @return A char pointer representing the output string without non-ASCII characters.
+ * @return A char pointer representing the output string without non-ASCII characters. The returned string
+ * must be freed by the caller.
  */
  char* removeNonAscii(const char* str);
 
 /**
-
-@brief Determines if a string starts with a given prefix string, with case sensitivity based on the provided flag.
-@param str The original string to check.
-@param pre The prefix string to check for.
-@param case A flag indicating whether the comparison should be case sensitive.
-@return bool True if the string starts with the given prefix, False otherwise.
+* 
+* @brief Determines if a string starts with a given prefix string, with case sensitivity based on the provided flag.
+* @param str The original string to check.
+* @param pre The prefix string to check for.
+* @param case A flag indicating whether the comparison should be case sensitive.
+* @return bool True if the string starts with the given prefix, False otherwise.
 */
 bool startsWith(const char *str, const char *pre, bool $case);
 /**
-
-@brief Determines if a string ends with a given suffix string, with case sensitivity based on the provided flag.
-@param str The original string to check.
-@param suffix The suffix string to check for.
-@param case A flag indicating whether the comparison should be case sensitive.
-@return bool True if the string ends with the given suffix, False otherwise.
+* 
+* @brief Determines if a string ends with a given suffix string, with case sensitivity based on the provided flag.
+* @param str The original string to check.
+* @param suffix The suffix string to check for.
+* @param case A flag indicating whether the comparison should be case sensitive.
+* @return bool True if the string ends with the given suffix, False otherwise.
 */
 bool endsWith(const char *str, const char *suffix, bool $case);
 /**
-
-@brief Determines if a haystack string contains a given needle string, with case sensitivity based on the provided flag.
-@param haystack The original string to search.
-@param needle The string to search for.
-@param case A flag indicating whether the search should be case sensitive.
-@return bool True if the haystack string contains the needle, False otherwise.
+* 
+* @brief Determines if a haystack string contains a given needle string, with case sensitivity based on the provided flag.
+* @param haystack The original string to search.
+* @param needle The string to search for.
+* @param case A flag indicating whether the search should be case sensitive.
+* @return bool True if the haystack string contains the needle, False otherwise.
 */
 bool contains(char *haystack, char *needle, bool $case);
 
@@ -173,7 +178,8 @@ bool contains(char *haystack, char *needle, bool $case);
  * @param str The string to insert into.
  * @param start The index to start the insertion.
  * @param value The string to be inserted.
- * @return A new string with the insertion. Returns NULL if the start index is out of range.
+ * @return A new string with the insertion. Returns NULL if the start index is out of range. The returned string
+ * must be freed by the caller.
  */
 char *insert(char *str, int start, char *value);
 
@@ -183,7 +189,8 @@ char *insert(char *str, int start, char *value);
  * @param str The array of strings to join.
  * @param size The number of strings in the array.
  * @param delim The delimiter to separate the strings.
- * @return A new string with the joined strings.
+ * @return A new string with the joined strings. The returned string
+ * must be freed by the caller.
  */
 char *join(char **str, int size, char *delim);
 
@@ -192,7 +199,8 @@ char *join(char **str, int size, char *delim);
  *
  * @param str1 The first string.
  * @param str2 The second string.
- * @return A new string with the concatenated strings.
+ * @return A new string with the concatenated strings. The returned string
+ * must be freed by the caller.
  */
 char *concat(char *str1, char *str2);
 
@@ -201,7 +209,8 @@ char *concat(char *str1, char *str2);
  *
  * @param str1 The first string.
  * @param str2 A char.
- * @return A new string with the concatenated string and char.
+ * @return A new string with the concatenated string and char. The returned string
+ * must be freed by the caller.
  */
 char *concatc(char *str1, char c);
 
@@ -209,7 +218,8 @@ char *concatc(char *str1, char c);
  * Converts a string to uppercase.
  *
  * @param str The string to convert to uppercase.
- * @return A new string with the converted characters.
+ * @return A new string with the converted characters. The returned string
+ * must be freed by the caller.
  */
 char *toupr(char *str);
 
@@ -217,9 +227,18 @@ char *toupr(char *str);
  * Converts a string to lowercase.
  *
  * @param str The string to convert to lowercase.
- * @return A new string with the converted characters.
+ * @return A new string with the converted characters. The returned string
+ * must be freed by the caller.
  */
 char *tolwr(char *str);
+
+/**
+ * Reverse a string in-place.
+ * 
+ * @param str The input string.
+ * @return The reversed string. The returned string must be freed by the caller.
+ */
+char *reverse(char *str);
 
 /**
  * @brief Counts the number of occurrences of `needle` in the string `haystack`.
@@ -322,25 +341,25 @@ int strsiCount(char *haystack, char *needle, int start, int count, bool $case);
 
 
 /**
-
-@brief Finds the index of a specified character in a string.
-@param str Pointer to the string to be searched.
-@param lookup The character to search for.
-@param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
-@return Returns the index of the first occurrence of the specified character in the string, or -1
- if the character is not found.
+* 
+* @brief Finds the index of a specified character in a string.
+* @param str Pointer to the string to be searched.
+* @param lookup The character to search for.
+* @param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
+* @return Returns the index of the first occurrence of the specified character in the string, or -1
+*  if the character is not found.
 */
 int indexOf(char *str, char lookup, bool $case);
 
 /**
-
-@brief Finds the index of a specified character in a string starting from a specified index.
-@param str Pointer to the string to be searched.
-@param c The character to search for.
-@param startIndex The index to start the search from.
-@param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
-@return Returns the index of the first occurrence of the specified character in the string starting
- from the specified index, or -1 if the character is not found.
+* 
+* @brief Finds the index of a specified character in a string starting from a specified index.
+* @param str Pointer to the string to be searched.
+* @param c The character to search for.
+* @param startIndex The index to start the search from.
+* @param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
+* @return Returns the index of the first occurrence of the specified character in the string starting
+*  from the specified index, or -1 if the character is not found.
 */
 int sIndexOf(const char *str, char c, int startIndex, bool $case);
 
@@ -357,38 +376,38 @@ int sIndexOf(const char *str, char c, int startIndex, bool $case);
 int iIndexOf(char *str, int count, char value, bool $case);
 
 /**
-
-@brief Finds the index of a specified character in a string within a specified range.
-@param str Pointer to the string to be searched.
-@param startIndex The index to start the search from.
-@param count The number of characters to search for the specified character.
-@param value The character to search for.
-@param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
-@return Returns the index of the first occurrence of the specified character in the string
- within the specified range, or -1 if the character is not found.
+* 
+* @brief Finds the index of a specified character in a string within a specified range.
+* @param str Pointer to the string to be searched.
+* @param startIndex The index to start the search from.
+* @param count The number of characters to search for the specified character.
+* @param value The character to search for.
+* @param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
+* @return Returns the index of the first occurrence of the specified character in the string
+*  within the specified range, or -1 if the character is not found.
 */
 int siIndexOf(char *str, int startIndex, int count, char value, bool $case);
 
 /**
-
-@brief Finds the index of a specified string in another string.
-@param str Pointer to the string to be searched.
-@param value The string to search for.
-@param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
-@return Returns the index of the first occurrence of the specified string in the string,
- or -1 if the string is not found.
+* 
+* @brief Finds the index of a specified string in another string.
+* @param str Pointer to the string to be searched.
+* @param value The string to search for.
+* @param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
+* @return Returns the index of the first occurrence of the specified string in the string,
+*  or -1 if the string is not found.
 */
 int strIndexOf(const char *str, const char *value, bool $case);
 
 /**
-
-@brief Finds the index of a specified string in another string starting from a specified index.
-@param str Pointer to the string to be searched.
-@param value The string to search for.
-@param startIndex The index to start the search from.
-@param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
-@return Returns the index of the first occurrence of the specified string in the string starting
- from the specified index, or -1 if the string is not found.
+* 
+* @brief Finds the index of a specified string in another string starting from a specified index.
+* @param str Pointer to the string to be searched.
+* @param value The string to search for.
+* @param startIndex The index to start the search from.
+* @param case Specifies whether the search should be case-sensitive (true) or case-insensitive (false).
+* @return Returns the index of the first occurrence of the specified string in the string starting
+*  from the specified index, or -1 if the string is not found.
 */
 int strsIndexOf(const char *str, const char *value, int startIndex, bool $case);
 
@@ -405,37 +424,37 @@ int strsIndexOf(const char *str, const char *value, int startIndex, bool $case);
 int striIndexOf(char *str, int count, char *value, bool $case);
 
 /**
-
-@brief Finds the index of a specified string within another string.
-@param str The string to search in.
-@param startIndex The starting index to search from.
-@param count The number of characters to search.
-@param value The string to search for.
-@param case Whether the search should be case-sensitive or not.
-@return The index of the first occurrence of the value string in the str string, or -1 if the value is not found.
+* 
+* @brief Finds the index of a specified string within another string.
+* @param str The string to search in.
+* @param startIndex The starting index to search from.
+* @param count The number of characters to search.
+* @param value The string to search for.
+* @param case Whether the search should be case-sensitive or not.
+* @return The index of the first occurrence of the value string in the str string, or -1 if the value is not found.
 */
 int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case);
 
 /**
-
-@brief Finds the index of the last occurrence of a specified character in a string.
-@param str The string to search in.
-@param lookup The character to search for.
-@param case Whether the search should be case-sensitive or not.
-@return The index of the last occurrence of the lookup character in the str string,
- or -1 if the character is not found.
+* 
+* @brief Finds the index of the last occurrence of a specified character in a string.
+* @param str The string to search in.
+* @param lookup The character to search for.
+* @param case Whether the search should be case-sensitive or not.
+* @return The index of the last occurrence of the lookup character in the str string,
+*  or -1 if the character is not found.
 */
 int lastIndexOf(char *str, char lookup, bool $case);
 
 /**
-
-@brief Finds the index of the last occurrence of a specified character in a string starting from a specified index.
-@param str The string to search in.
-@param value The character to search for.
-@param startIndex The starting index to search from.
-@param case Whether the search should be case-sensitive or not.
-@return The index of the last occurrence of the value character in the str string starting
- from the startIndex, or -1 if the character is not found.
+* 
+* @brief Finds the index of the last occurrence of a specified character in a string starting from a specified index.
+* @param str The string to search in.
+* @param value The character to search for.
+* @param startIndex The starting index to search from.
+* @param case Whether the search should be case-sensitive or not.
+* @return The index of the last occurrence of the value character in the str string starting
+*  from the startIndex, or -1 if the character is not found.
 */
 int sLastIndexOf(const char *str, char value, int startIndex, bool $case);
 
@@ -452,38 +471,38 @@ int sLastIndexOf(const char *str, char value, int startIndex, bool $case);
 int iLastIndexOf(const char *str, char value, int count, bool $case);
 
 /**
-
-@brief Returns the index of the last occurrence of a specified character in a string starting
- from a specified index and searching only a specified number of characters.
-@param str The input string.
-@param value The character to search for.
-@param startIndex The starting index in the input string.
-@param count The number of characters to search in the input string.
-@param case Indicates whether to perform a case-sensitive search (true) or case-insensitive search (false).
-@return The index of the last occurrence of the specified character in the input string,
- or -1 if the character is not found.
+* 
+* @brief Returns the index of the last occurrence of a specified character in a string starting
+*  from a specified index and searching only a specified number of characters.
+* @param str The input string.
+* @param value The character to search for.
+* @param startIndex The starting index in the input string.
+* @param count The number of characters to search in the input string.
+* @param case Indicates whether to perform a case-sensitive search (true) or case-insensitive search (false).
+* @return The index of the last occurrence of the specified character in the input string,
+*  or -1 if the character is not found.
 */
 int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $case);
 
 /**
-
-@brief Finds the index of the last occurrence of a specified string in a string.
-@param str The string to search in.
-@param value The string to search for.
-@param case Whether the search should be case-sensitive or not.
-@return The index of the last occurrence of the value string in the str string, or -1 if the value is not found.
+*
+*@brief Finds the index of the last occurrence of a specified string in a string.
+*@param str The string to search in.
+*@param value The string to search for.
+*@param case Whether the search should be case-sensitive or not.
+*@return The index of the last occurrence of the value string in the str string, or -1 if the value is not found.
 */
 int strLastIndexOf(const char *str, const char *value, bool $case);
 
 /**
-
-@brief Finds the index of the last occurrence of a specified string in a string starting from a specified index.
-@param str The string to search in.
-@param value The string to search for.
-@param startIndex The starting index to search from.
-@param case Whether the search should be case-sensitive or not.
-@return The index of the last occurrence of the value string in the str string starting
- from the startIndex, or -1 if the value is not found.
+* 
+* @brief Finds the index of the last occurrence of a specified string in a string starting from a specified index.
+* @param str The string to search in.
+* @param value The string to search for.
+* @param startIndex The starting index to search from.
+* @param case Whether the search should be case-sensitive or not.
+* @return The index of the last occurrence of the value string in the str string starting
+*  from the startIndex, or -1 if the value is not found.
 */
 int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $case);
 
@@ -500,15 +519,15 @@ int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $ca
 int striLastIndexOf(const char *str, const char *value, int count, bool $case);
 
 /**
-
-@brief Returns the index of the last occurrence of a specified string in a string starting from
- a specified index and searching only a specified number of characters.
-@param str The input string.
-@param value The string to search for.
-@param startIndex The starting index in the input string.
-@param count The number of characters to search in the input string.
-@param case Indicates whether to perform a case-sensitive search (true) or case-insensitive search (false).
-@return The index of the last occurrence of the specified string in the input string,
- or -1 if the string is not found.
+* 
+* @brief Returns the index of the last occurrence of a specified string in a string starting from
+*  a specified index and searching only a specified number of characters.
+* @param str The input string.
+* @param value The string to search for.
+* @param startIndex The starting index in the input string.
+* @param count The number of characters to search in the input string.
+* @param case Indicates whether to perform a case-sensitive search (true) or case-insensitive search (false).
+* @return The index of the last occurrence of the specified string in the input string,
+*  or -1 if the string is not found.
 */
 int strsiLastIndexOf(const char *str, const char *value, int startIndex, int count, bool $case);

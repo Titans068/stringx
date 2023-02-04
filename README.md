@@ -89,8 +89,6 @@ char *insert(char *str, int start, char *value)
 ```
 Inserts a string into another string at a given start index.
 
-generate markdown for a readme.md for the following header code. include function declarations and brief explanations
-    
 ```c
 char *join(char **str, int size, char *delim);
 ```

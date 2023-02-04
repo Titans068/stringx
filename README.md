@@ -172,17 +172,17 @@ Finds the index of a specified character in a string.
 ```c
 int sIndexOf(const char *str, char c, int startIndex, bool $case);
 ```
-Finds the index of a specified character in a string starting from a specified index.
+Finds the index of a specified character in a string, starting from a specified index.
 
 ```c
 int iIndexOf(char *str, int count, char value, bool $case);
 ```
-Finds the index of a specified character in a string.
+Finds the index of a specified character in a string and searching only a specified number of characters.
 
 ```c
 int siIndexOf(char *str, int startIndex, int count, char value, bool $case);
 ```
-Finds the index of a specified character in a string within a specified range.
+Finds the index of a specified character in a string, starting from a specified index and searching only a specified number of characters.
 
 ```c
 int strIndexOf(const char *str, const char *value, bool $case);
@@ -192,17 +192,18 @@ Finds the index of a specified string in another string.
 ```c
 int strsIndexOf(const char *str, const char *value, int startIndex, bool $case);
 ```
-Finds the index of a specified string in another string starting from a specified index.
+Finds the index of a specified string in another string, starting from a specified index.
 
 ```c
 int striIndexOf(char *str, int count, char *value, bool $case);
 ```
-Finds the index of a specified string in a string.
+Finds the index of a specified string in a string and searching only a specified number of characters.
 
 ```c
 int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case);
 ```
-Finds the index of a specified string within another string.
+Finds the index of a specified string within another string, starting from a specified index 
+and searching only a specified number of characters.
 
 ```c
 int lastIndexOf(char *str, char lookup, bool $case);
@@ -212,12 +213,12 @@ Finds the index of the last occurrence of a specified character in a string.
 ```c
 int sLastIndexOf(const char *str, char value, int startIndex, bool $case);
 ```
-Finds the index of the last occurrence of a specified character in a string.
+Finds the index of the last occurrence of a specified character in a string, starting from a specified index.
 
 ```c
 int iLastIndexOf(const char *str, char value, int count, bool $case);
 ```
-Finds the index of the last occurrence of a specified character in a string.
+Finds the index of the last occurrence of a specified character in a string and searching only a specified number of characters.
 
 ```c
 int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $case);
@@ -233,20 +234,22 @@ Finds the index of the last occurrence of a specified string in a string.
 ```c
 int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $case);
 ```
-Finds the index of the last occurrence of a specified string in a string starting from a specified index.
+Finds the index of the last occurrence of a specified string in a string, starting from a specified index.
 
 ```c
 int striLastIndexOf(const char *str, const char *value, int count, bool $case);
 ```
-Finds the index of the last occurrence of a specified string in a string.
+Finds the index of the last occurrence of a specified string in a string and searching only a specified number of characters..
 
 ```c
 int strsiLastIndexOf(const char *str, const char *value, int startIndex, int count, bool $case);
 ```
-Returns the index of the last occurrence of a specified string in a string starting from
+Returns the index of the last occurrence of a specified string in a string, starting from
 a specified index and searching only a specified number of characters.
 
 #### NAMING CONVENTIONS:
 - str - function takes in a string as a search term instead of a char
 - s - function searches from the starting index.
 - i - function searches the specified number of characters in a string.
+
+The `bool $case` parameter specifies whether the search is case sensitive.

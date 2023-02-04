@@ -213,7 +213,7 @@ char *join(char **arr, int size, char *delim, TYPE t);
 char *concat(char *str1, char *str2);
 
 /**
- * Concatenates str1 and str2, a char into a single string.
+ * Concatenates str1 and c, a char, into a single string.
  *
  * @param str1 The first string.
  * @param str2 A char.

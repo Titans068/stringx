@@ -57,17 +57,17 @@ Trims the leading and trailing whitespaces from the given string. Returns the tr
 ```c
 char *replace(char *haystack, char *needle, char *replacement, int max_replacements)
 ```
-Replaces all occurrences of a given needle string in a haystack string with a replacement string.
+Replaces all occurrences of a given needle string in a haystack string with a replacement string. The returned string must be freed by the caller.
 
 ```c
 char *replaceLast(const char *str, const char *target, const char *replacement, int count)
 ```
-Replaces the last occurrence of a specified string in a given string with another string
+Replaces the last occurrence of a specified string in a given string with another string. The returned string must be freed by the caller.
 
 ```c
 char* removeNonAscii(const char* str)
 ```
-Removes all non-ASCII characters from a string and returns a char pointer.
+Removes all non-ASCII characters from a string and returns a char pointer. The returned string must be freed by the caller.
 
 ```c
 bool startsWith(const char *str, const char *pre, bool $case)
@@ -87,37 +87,37 @@ Determines if a haystack string contains a given needle string, with case sensit
 ```c
 char *insert(char *str, int start, char *value)
 ```
-Inserts a string into another string at a given start index.
+Inserts a string into another string at a given start index. The returned string must be freed by the caller.
 
 ```c
 char *join(char **str, int size, char *delim, TYPE t);
 ```
-Joins an array of `char`, `int`, `float`, `double` into a single string using a delimiter.
+Joins an array of `char`, `int`, `float`, `double` into a single string using a delimiter. The returned string must be freed by the caller.
 
 ```c
 char *concat(char *str1, char *str2);
 ```
-Concatenates two strings into a single string.
+Concatenates two strings into a single string. The returned string must be freed by the caller.
 
 ```c
 char *concatc(char *str1, char c);
 ```
-Concatenates str1 and str2, a char into a single string.
+Concatenates str1 and c, a char, into a single string. The returned string must be freed by the caller.
 
 ```c
 char *toupr(char *str);
 ```
-Converts a string to uppercase.
+Converts a string to uppercase. The returned string must be freed by the caller.
 
 ```c
 char *tolwr(char *str);
 ```
-Converts a string to lowercase.
+Converts a string to lowercase. The returned string must be freed by the caller.
 
 ```c
 char *reverse(char *str);
 ```
-Reverse a string in-place.
+Reverse a string in-place. The returned string must be freed by the caller.
 
 ```c
 int count(char *haystack, char needle, bool $case);

@@ -11,7 +11,7 @@ int main() {
     for (int i = 0; i <= commas; i++)
         printf("%s\n", arr[i]);
 
-    str = join(arr, 4, " ");
+    str = join(arr, commas + 1, " ");
     printf("\nJOIN:\n%s\n", str);
 
     str = concat(arr[1], arr[2]);

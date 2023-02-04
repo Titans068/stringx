@@ -34,16 +34,40 @@ int strnicomp(const char *s1, const char *s2, size_t n);
  */
 char *stristr(char *haystack, char *needle);
 
+
 /**
- * @brief split - split a string into an array of strings based on a delimiter
+ * @brief splitc - split a string into an array of strings based on a delimiter
  * @param str: the string to split
- * @param delimiter: the delimiter to use for splitting
+ * @param delimiter: the delimiter char to use for splitting
  *
  * @returns This function returns an array of strings, with each element being a substring of
  * the original string, separated by the specified delimiter. The returned array must
  * be freed by the caller.
  */
-char **split(const char *str, const char delimiter);
+char **splitc(const char *str, char delimiter);
+
+/**
+ * @brief split - split a string into an array of strings based on a delimiter
+ * @param str: the string to split
+ * @param delimiter: the delimiter string to use for splitting
+ *
+ * @returns This function returns an array of strings, with each element being a substring of
+ * the original string, separated by the specified delimiter. The returned array must
+ * be freed by the caller.
+ */
+char **split(char *str, char *delimiter);
+
+/**
+ * @brief split_s - split a string into an array of strings based on delimiters
+ * @param str: the string to split
+ * @param delimiters: the array of delimiter strings to use for splitting
+ *
+ * @returns This function returns an array of strings, with each element being a substring of
+ * the original string, separated by the specified delimiter. The returned array must
+ * be freed by the caller.
+ */
+char **split_s(char *str, char **delimiters, int delim_count);
+
 
 /**
  * @brief strndup_ - duplicate a string for a specified number of characters

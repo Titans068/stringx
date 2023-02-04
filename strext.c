@@ -33,7 +33,8 @@ char *stristr(char *haystack, char *needle) {
     return NULL;
 }
 
-char **split(const char *str, const char delimiter) {
+
+char **splitc(const char *str, const char delimiter) {
     unsigned long long int length = strlen(str);
     int count = 0;
     for (int i = 0; i < length; i++)
@@ -58,6 +59,119 @@ char **split(const char *str, const char delimiter) {
     }
 
     return arr;
+}
+
+char **split(char *str, char *delimiter) {
+    int str_len = strlen(str);
+    int delimiter_len = strlen(delimiter);
+    int count = 0;
+    int i, j, k;
+    for (i = 0; i <= str_len - delimiter_len; i++) {
+        int match = 1;
+        for (j = 0; j < delimiter_len; j++) {
+            if (str[i + j] != delimiter[j]) {
+                match = 0;
+                break;
+            }
+        }
+        if (match) {
+            count++;
+            i += delimiter_len - 1;
+        }
+    }
+    char **result = (char **) malloc((count + 1) * sizeof(char *));
+    int start = 0;
+    int end = 0;
+    int index = 0;
+    for (i = 0; i <= str_len; i++) {
+        int match = 1;
+        for (j = 0; j < delimiter_len; j++) {
+            if (str[i + j] != delimiter[j]) {
+                match = 0;
+                break;
+            }
+        }
+        if (match || str[i] == '\0') {
+            int length = i - start;
+            result[index] = (char *) malloc(length + 1);
+            for (k = 0; k < length; k++)
+                result[index][k] = str[start + k];
+
+            result[index][length] = '\0';
+            index++;
+            start = i + delimiter_len;
+            i += delimiter_len - 1;
+        }
+    }
+    result[++count] = NULL;
+    return result;
+}
+
+char **split_s(char *str, char **delimiters, int delim_count) {
+    int i, j, k;
+    int start = 0;
+    int end = 0;
+    unsigned len = strlen(str);
+    int split_count = 0;
+    int is_delim = 0;
+    char **splits;
+
+    // Count the number of splits
+    for (i = 0; i < len; i++) {
+        is_delim = 0;
+        for (j = 0; j < delim_count; j++) {
+            if (strncmp(&str[i], delimiters[j], strlen(delimiters[j])) == 0) {
+                split_count++;
+                is_delim = 1;
+                break;
+            }
+        }
+        if (is_delim)
+            i += strlen(delimiters[j]) - 1;
+    }
+
+    // Allocate memory for the splits array
+    splits = (char **) malloc((split_count + 1) * sizeof(char *));
+
+    // Split the string into separate pieces
+    start = 0;
+    end = 0;
+    split_count = 0;
+    for (i = 0; i < len; i++) {
+        is_delim = 0;
+        for (j = 0; j < delim_count; j++) {
+            if (strncmp(&str[i], delimiters[j], strlen(delimiters[j])) == 0) {
+                end = i;
+                splits[split_count] = (char *) malloc((end - start + 1) * sizeof(char));
+                for (k = 0; k < end - start; k++)
+                    splits[split_count][k] = str[start + k];
+
+                splits[split_count][end - start] = '\0';
+                split_count++;
+                start = i + strlen(delimiters[j]);
+                is_delim = 1;
+                break;
+            }
+        }
+        if (is_delim)
+            i += strlen(delimiters[j]) - 1;
+
+    }
+
+    // Add the last split to the splits array
+    if (start < len) {
+        splits[split_count] = (char *) malloc((len - start + 1) * sizeof(char));
+        for (k = 0; k < len - start; k++)
+            splits[split_count][k] = str[start + k];
+
+        splits[split_count][len - start] = '\0';
+        split_count++;
+    }
+
+    // Terminate the splits array with a null pointer
+    splits[split_count] = NULL;
+
+    return splits;
 }
 
 char *strndup_(const char *str, unsigned long long int chars) {

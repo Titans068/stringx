@@ -17,9 +17,21 @@ Finds the first occurrence of a substring, ignoring case. Returns a pointer to t
 
 ---
 ```c
-char **split(const char *str, char delimiter);
+char **splitc(const char *str, char delimiter);
 ```
 Splits a string into an array of strings based on a delimiter. Returns an array of strings, with each element being a substring of the original string, separated by the specified delimiter. The returned array must be freed by the caller.
+
+---
+```c
+char **split(const char *str, char *delimiter);
+```
+Splits a string into an array of strings based on a delimiter. Returns an array of strings, with each element being a substring of the original string, separated by the specified delimiter. The returned array must be freed by the caller.
+
+---
+```c
+char **split_s(char *str, char **delimiters, int delim_count);
+```
+Splits a string into an array of strings based on delimiters. Returns an array of strings, with each element being a substring of the original string, separated by the specified delimiter. The returned array must be freed by the caller.
 
 ---
 ```c

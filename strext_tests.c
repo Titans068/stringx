@@ -1,14 +1,16 @@
 #include "strext.h"
 
 int main() {
-    char *str = "one,two,seventy,thirteen,thirty two";
+    char *str = "one,two,three,four,thirty two", *delimiters[] = {",", " "};
+    int delim_count = sizeof(delimiters) / sizeof(delimiters[0]);
+    char **arr1;
     int arr2[] = {1, 2, 3, 4, 5};
     float arr3[] = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
     double arr4[] = {1.1, 2.2, 3.3, 4.4, 5.5};
 
     void *vstr[5], *v2[5], *v3[5], *v4[5];
 
-    char **arr = split(str, ',');
+    char **arr = splitc(str, ',');
     int delim = 0;
     for (int j = 0; j < strlen(str); j++)
         if (str[j] == ',') delim++;
@@ -17,6 +19,20 @@ int main() {
     printf("SPLIT:\n");
     for (int i = 0; i < delim; i++)
         printf("%s\n", arr[i]);
+
+    printf("\n");
+    arr1 = split(str, ",");
+    for (int i = 0; i < delim; i++) {
+        printf("%s\n", arr1[i]);
+        free(arr1[i]);
+    }
+
+    printf("\n");
+    arr1 = split_s(str, delimiters, delim_count);
+    for (int i = 0; i < delim + 1; i++) {
+        printf("%s\n", arr1[i]);
+        free(arr1[i]);
+    }
 
     for (int i = 0; i < delim; i++) {
         vstr[i] = arr[i];

@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <string.h>
 
+typedef enum {
+    CHAR,
+    INT,
+    FLOAT,
+    DOUBLE
+} TYPE;
+
 /**
  * @brief strnicomp - compare two strings, ignoring case, for a specified number of characters
  * @param s1: first string to compare
@@ -186,13 +193,14 @@ char *insert(char *str, int start, char *value);
 /**
  * Joins an array of strings into a single string using a delimiter.
  *
- * @param str The array of strings to join.
+ * @param arr The array of strings to join.
  * @param size The number of strings in the array.
  * @param delim The delimiter to separate the strings.
+ * @param t An enum consisting of CHAR, INT, FLOAT, DOUBLE denoting the type of arr
  * @return A new string with the joined strings. The returned string
  * must be freed by the caller.
  */
-char *join(char **str, int size, char *delim);
+char *join(char **arr, int size, char *delim, TYPE t);
 
 /**
  * Concatenates two strings into a single string.

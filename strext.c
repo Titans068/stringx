@@ -258,21 +258,31 @@ char *insert(char *str, int start, char *value) {
     return res;
 }
 
-char *join(char **str, int size, char *delim) {
-    int str_l = 0;
+char *join(void **arr, int size, char *delim, TYPE t) {
+    char *result = (char *) malloc(sizeof(char) * 1024);
+    result[0] = '\0';
 
     for (int i = 0; i < size; i++) {
-        str_l += strlen(str[i]);
-        if (i < size - 1) str_l += strlen(delim);
+        switch (t) {
+            case INT:
+                sprintf(result + strlen(result), "%d%s", *(int *) (arr[i]), delim);
+                break;
+            case DOUBLE:
+                sprintf(result + strlen(result), "%f%s", *(double *) (arr[i]), delim);
+                break;
+            case FLOAT:
+                sprintf(result + strlen(result), "%f%s", *(float *) (arr[i]), delim);
+                break;
+            case CHAR:
+                sprintf(result + strlen(result), "%s%s", (char *) (arr[i]), delim);
+                break;
+        }
     }
-    char *res = malloc(sizeof(char *) * size + 1);
-    res[0] = '\0';
-    for (int j = 0; j < size; j++) {
-        strcat(res, str[j]);
-        if (j < size - 1)
-            strcat(res, delim);
-    }
-    return res;
+
+    unsigned len = strlen(result);
+    result[len - strlen(delim)] = '\0';
+
+    return result;
 }
 
 char *concat(char *str1, char *str2) {

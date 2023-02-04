@@ -1,23 +1,50 @@
 #include "strext.h"
 
 int main() {
-    char *str = "one,two,seventy,thirteen";
+    char *str = "one,two,seventy,thirteen,thirty two";
+    int arr2[] = {1, 2, 3, 4, 5};
+    float arr3[] = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
+    double arr4[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+
+    void *vstr[5], *v2[5], *v3[5], *v4[5];
+
     char **arr = split(str, ',');
-    int commas = 0;
+    int delim = 0;
     for (int j = 0; j < strlen(str); j++)
-        if (str[j] == ',') commas++;
+        if (str[j] == ',') delim++;
+    delim++;
 
     printf("SPLIT:\n");
-    for (int i = 0; i <= commas; i++)
+    for (int i = 0; i < delim; i++)
         printf("%s\n", arr[i]);
 
-    str = join(arr, commas + 1, " ");
+    for (int i = 0; i < delim; i++) {
+        vstr[i] = arr[i];
+        v2[i] = &arr2[i];
+        v3[i] = &arr3[i];
+        v4[i] = &arr4[i];
+    }
+
+    str = join(vstr, delim, " ", CHAR);
     printf("\nJOIN:\n%s\n", str);
+    free(str);
+
+    str = join(v2, delim, ", ", INT);
+    printf("%s\n", str);
+    free(str);
+
+    str = join(v3, delim, " ", FLOAT);
+    printf("%s\n", str);
+    free(str);
+
+    str = join(v4, delim, " and ", DOUBLE);
+    printf("%s\n", str);
+    free(str);
 
     str = concat(arr[1], arr[2]);
     printf("\nCONCAT:\n%s\n", str);
-
     free(str);
+
     free(arr);
 
     str = "   Hello world!  ";
@@ -76,6 +103,7 @@ int main() {
     str = "Hello world";
     str = insert(str, 5, " new");
     printf("\nINSERT:\n%s\n", str);
+    //free(str);
 
     str = "sea shells on sea shore";
     printf("\nCOUNT:\n%d\n%d\n", strCount(str, "SH", true),

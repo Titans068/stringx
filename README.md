@@ -90,9 +90,9 @@ char *insert(char *str, int start, char *value)
 Inserts a string into another string at a given start index.
 
 ```c
-char *join(char **str, int size, char *delim);
+char *join(char **str, int size, char *delim, TYPE t);
 ```
-Joins an array of strings into a single string using a delimiter.
+Joins an array of `char`, `int`, `float`, `double` into a single string using a delimiter.
 
 ```c
 char *concat(char *str1, char *str2);
@@ -250,4 +250,4 @@ a specified index and searching only a specified number of characters.
 - s - function searches from the starting index.
 - i - function searches the specified number of characters in a string.
 
-The `bool $case` parameter specifies whether the search is case sensitive.
+The `$case` parameter specifies whether the search is case sensitive.

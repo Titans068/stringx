@@ -33,7 +33,6 @@ char *stristr(char *haystack, char *needle) {
     return NULL;
 }
 
-
 char **splitc(const char *str, const char delimiter) {
     unsigned long long int length = strlen(str);
     int count = 0;
@@ -260,12 +259,12 @@ char *replace(char *haystack, char *needle, char *replacement, int max_replaceme
     return result;
 }
 
-char *replaceLast(const char *str, const char *target, const char *replacement, int count) {
+char *replacelast(const char *str, const char *target, const char *replacement, int count) {
     int targetLen = strlen(target), strLen = strlen(str),
             replacementLen = strlen(replacement);
 
     // Check if the target string is present in the source string
-    int targetIndex = striLastIndexOf(str, target, strLen, false);
+    int targetIndex = strilastindexof(str, target, strLen, false);
     if (targetIndex == -1) return strdup(str);
     // Calculate the length of the new string
     int newLen = strLen - targetLen + replacementLen;
@@ -285,7 +284,7 @@ char *replaceLast(const char *str, const char *target, const char *replacement, 
         int replacements = 1;
         // Repeat the replacement for count times
         while (replacements < count) {
-            int targetIndex = striLastIndexOf(newStr, target, newLen, false);
+            int targetIndex = strilastindexof(newStr, target, newLen, false);
             if (targetIndex == -1) break;
 
             newLen = newLen - targetLen + replacementLen;
@@ -308,7 +307,7 @@ char *replaceLast(const char *str, const char *target, const char *replacement, 
     } else {
         // Repeat the replacement until there are no more occurrences
         while (true) {
-            int targetIndex = striLastIndexOf(newStr, target, newLen, false);
+            int targetIndex = strilastindexof(newStr, target, newLen, false);
             if (targetIndex == -1) break;
 
             newLen = newLen - targetLen + replacementLen;
@@ -326,10 +325,10 @@ char *replaceLast(const char *str, const char *target, const char *replacement, 
             memcpy(newStr + targetIndex, replacement, replacementLen);
         }
     }
-    return removeNonAscii(newStr);
+    return removenonascii(newStr);
 }
 
-char *removeNonAscii(const char *str) {
+char *removenonascii(const char *str) {
     int i = -1, j = -1;
     char *res = malloc(sizeof(char) * strlen(str) + 2);
     while (str[++i] != '\0') {
@@ -340,12 +339,12 @@ char *removeNonAscii(const char *str) {
     return res;
 }
 
-bool startsWith(const char *str, const char *pre, bool $case) {
+bool startswith(const char *str, const char *pre, bool $case) {
     return $case ? (strncmp(pre, str, strlen(pre)) == 0) :
            (strnicomp(pre, str, strlen(pre)) == 0);
 }
 
-bool endsWith(const char *str, const char *suffix, bool $case) {
+bool endswith(const char *str, const char *suffix, bool $case) {
     if (!str || !suffix)
         return 0;
     size_t lenstr = strlen(str);
@@ -455,7 +454,7 @@ int count(char *haystack, char needle, bool $case) {
     return j;
 }
 
-int sCount(char *haystack, char needle, int start, bool $case) {
+int scount(char *haystack, char needle, int start, bool $case) {
     int j = 0;
     for (int i = start; i < start; ++i)
         if (haystack[i] == needle ||
@@ -464,7 +463,7 @@ int sCount(char *haystack, char needle, int start, bool $case) {
     return j;
 }
 
-int iCount(char *haystack, char needle, int count, bool $case) {
+int icount(char *haystack, char needle, int count, bool $case) {
     int j = 0;
     for (int i = 0; i < count; ++i)
         if (haystack[i] == needle ||
@@ -473,7 +472,7 @@ int iCount(char *haystack, char needle, int count, bool $case) {
     return j;
 }
 
-int siCount(char *haystack, char needle, int start, int count, bool $case) {
+int iscount(char *haystack, char needle, int start, int count, bool $case) {
     int j = 0;
     for (int i = start; i < start + count; ++i)
         if (haystack[i] == needle ||
@@ -482,7 +481,7 @@ int siCount(char *haystack, char needle, int start, int count, bool $case) {
     return j;
 }
 
-int strCount(char *haystack, char *needle, bool $case) {
+int strcount(char *haystack, char *needle, bool $case) {
     unsigned valueLength = strlen(needle);
     int ct = 0;
     for (int i = 0; i < strlen(haystack) - valueLength + 1; i++) {
@@ -494,7 +493,7 @@ int strCount(char *haystack, char *needle, bool $case) {
 }
 
 
-int strsCount(char *haystack, char *needle, int start, bool $case) {
+int strscount(char *haystack, char *needle, int start, bool $case) {
     unsigned valueLength = strlen(needle);
     int ct = 0;
     for (int i = start; i < start - valueLength + 1; i++) {
@@ -505,7 +504,7 @@ int strsCount(char *haystack, char *needle, int start, bool $case) {
     return ct;
 }
 
-int striCount(char *haystack, char *needle, int count, bool $case) {
+int stricount(char *haystack, char *needle, int count, bool $case) {
     unsigned valueLength = strlen(needle);
     int ct = 0;
     for (int i = 0; i < count - valueLength + 1; i++) {
@@ -516,7 +515,7 @@ int striCount(char *haystack, char *needle, int count, bool $case) {
     return ct;
 }
 
-int strsiCount(char *haystack, char *needle, int start, int count, bool $case) {
+int striscount(char *haystack, char *needle, int start, int count, bool $case) {
     unsigned valueLength = strlen(needle);
     int ct = 0;
     for (int i = start; i < start + count - valueLength + 1; i++) {
@@ -529,7 +528,7 @@ int strsiCount(char *haystack, char *needle, int start, int count, bool $case) {
 
 
 //NOTE: INDEX OF
-int indexOf(char *str, char lookup, bool $case) {
+int indexof(char *str, char lookup, bool $case) {
     for (int i = 0; *str != '\0'; *str++, i++)
         if ((!$case && *str == lookup) ||
             (tolower(*str) == tolower(lookup)))
@@ -538,14 +537,14 @@ int indexOf(char *str, char lookup, bool $case) {
     return -1;
 }
 
-int sIndexOf(const char *str, char c, int startIndex, bool $case) {
+int sindexof(const char *str, char c, int startIndex, bool $case) {
     for (int i = startIndex; i < strlen(str); i++)
         if (str[i] == c || (!$case && tolower(str[i]) == tolower(c)))
             return i;
     return -1;
 }
 
-int iIndexOf(char *str, int count, char value, bool $case) {
+int iindexof(char *str, int count, char value, bool $case) {
     unsigned strLength = strlen(str);
 
     // Check if the startIndex is within the range of the string
@@ -566,7 +565,7 @@ int iIndexOf(char *str, int count, char value, bool $case) {
 }
 
 // Find the index of a char in a string
-int siIndexOf(char *str, int startIndex, int count, char value, bool $case) {
+int isindexof(char *str, int startIndex, int count, char value, bool $case) {
     unsigned strLength = strlen(str);
 
     // Check if the startIndex is within the range of the string
@@ -588,7 +587,7 @@ int siIndexOf(char *str, int startIndex, int count, char value, bool $case) {
     return -1;
 }
 
-int strIndexOf(const char *str, const char *value, bool $case) {
+int strindexof(const char *str, const char *value, bool $case) {
     unsigned valueLength = strlen(value);
     for (int i = 0; i < strlen(str) - valueLength + 1; i++) {
         if (($case ? strncmp(str + i, value, valueLength) :
@@ -598,7 +597,7 @@ int strIndexOf(const char *str, const char *value, bool $case) {
     return -1;
 }
 
-int strsIndexOf(const char *str, const char *value, int startIndex, bool $case) {
+int strsindexof(const char *str, const char *value, int startIndex, bool $case) {
     unsigned valueLength = strlen(value);
     for (int i = startIndex; i < strlen(str) - valueLength + 1; i++) {
         if (($case ? strncmp(str + i, value, valueLength) :
@@ -609,7 +608,7 @@ int strsIndexOf(const char *str, const char *value, int startIndex, bool $case) 
 }
 
 // Find the index of a string in a string
-int striIndexOf(char *str, int count, char *value, bool $case) {
+int striindexof(char *str, int count, char *value, bool $case) {
     unsigned strLength = strlen(str),
             valueLength = strlen(value);
 
@@ -630,7 +629,7 @@ int striIndexOf(char *str, int count, char *value, bool $case) {
 }
 
 // Find the index of a string in a string
-int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case) {
+int strisindexof(char *str, int startIndex, int count, char *value, bool $case) {
     unsigned strLength = strlen(str),
             valueLength = strlen(value);
 
@@ -654,7 +653,7 @@ int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case) 
     return -1;
 }
 
-int lastIndexOf(char *str, char lookup, bool $case) {
+int lastindexof(char *str, char lookup, bool $case) {
     for (int i = (int) strlen(str); i > 0; i--)
         if ((!$case && str[i] == lookup) ||
             (tolower(str[i]) == tolower(lookup)))
@@ -665,7 +664,7 @@ int lastIndexOf(char *str, char lookup, bool $case) {
 
 // Returns the index of the last occurrence of a specified character
 // in a string starting from a specified index.
-int sLastIndexOf(const char *str, char value, int startIndex, bool $case) {
+int slastindexof(const char *str, char value, int startIndex, bool $case) {
     for (int i = startIndex; i >= 0; i--)
         if (str[i] == value || (!$case && tolower(str[i]) == tolower(value)))
             return i;
@@ -674,7 +673,7 @@ int sLastIndexOf(const char *str, char value, int startIndex, bool $case) {
 }
 
 // Returns the index of the last occurrence of a specified character in a string starting from a specified index and searching only a specified number of characters.
-int iLastIndexOf(const char *str, char value, int count, bool $case) {
+int ilastindexof(const char *str, char value, int count, bool $case) {
     int startIndex = strlen(str);
     int endIndex = abs(startIndex - count + 1);
     for (int i = startIndex; i >= endIndex; i--)
@@ -685,7 +684,7 @@ int iLastIndexOf(const char *str, char value, int count, bool $case) {
 }
 
 // Returns the index of the last occurrence of a specified character in a string starting from a specified index and searching only a specified number of characters.
-int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $case) {
+int islastindexof(const char *str, char value, int startIndex, int count, bool $case) {
     int endIndex = startIndex - count + 1;
     for (int i = startIndex; i >= endIndex; i--)
         if (str[i] == value || ($case && tolower(str[i]) == tolower(value)))
@@ -695,7 +694,7 @@ int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $
 }
 
 // Returns the index of the last occurrence of a specified string in a string.
-int strLastIndexOf(const char *str, const char *value, bool $case) {
+int strlastindexof(const char *str, const char *value, bool $case) {
     unsigned len = strlen(str), valLen = strlen(value);
 
     for (int i = len - valLen; i >= 0; i--)
@@ -707,7 +706,7 @@ int strLastIndexOf(const char *str, const char *value, bool $case) {
 }
 
 // Returns the index of the last occurrence of a specified string in a string starting from a specified index.
-int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $case) {
+int strslastindexof(const char *str, const char *value, int startIndex, bool $case) {
     unsigned valLen = strlen(value);
 
     for (int i = startIndex - valLen + 1; i >= 0; i--)
@@ -720,7 +719,7 @@ int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $ca
 
 // Returns the index of the last occurrence of a specified string in a string starting
 // from a specified index and searching only a specified number of characters.
-int striLastIndexOf(const char *str, const char *value, int count, bool $case) {
+int strilastindexof(const char *str, const char *value, int count, bool $case) {
     unsigned valLen = strlen(value);
     int startIndex = strlen(str);
 
@@ -735,7 +734,7 @@ int striLastIndexOf(const char *str, const char *value, int count, bool $case) {
 
 // Returns the index of the last occurrence of a specified string in a string starting
 // from a specified index and searching only a specified number of characters.
-int strsiLastIndexOf(const char *str, const char *value, int startIndex, int count, bool $case) {
+int strislastindexof(const char *str, const char *value, int startIndex, int count, bool $case) {
     unsigned valLen = strlen(value);
 
     int endIndex = startIndex - count + 1;

@@ -83,25 +83,25 @@ Replaces all occurrences of a given needle string in a haystack string with a re
 
 ---
 ```c
-char *replaceLast(const char *str, const char *target, const char *replacement, int count)
+char *replacelast(const char *str, const char *target, const char *replacement, int count)
 ```
 Replaces the last occurrence of a specified string in a given string with another string. The returned string must be freed by the caller.
 
 ---
 ```c
-char* removeNonAscii(const char* str)
+char* removenonascii(const char* str)
 ```
 Removes all non-ASCII characters from a string and returns a char pointer. The returned string must be freed by the caller.
 
 ---
 ```c
-bool startsWith(const char *str, const char *pre, bool $case)
+bool startswith(const char *str, const char *pre, bool $case)
 ```
 Determines if a string starts with a given prefix string, with case sensitivity based on the provided flag.
 
 ---
 ```c
-bool endsWith(const char *str, const char *suffix, bool $case)
+bool endswith(const char *str, const char *suffix, bool $case)
 ```
 Determines if a string ends with a given suffix string, with case sensitivity based on the provided flag.
 
@@ -161,144 +161,144 @@ Counts the number of occurrences of `needle` in the string `haystack`.
 
 ---
 ```c
-int sCount(char *haystack, char needle, int start, bool $case);
+int scount(char *haystack, char needle, int start, bool $case);
 ```
 Counts the number of occurrences of `needle` in the string `haystack` starting from the `start` index.
 
 ---
 ```c
-int iCount(char *haystack, char needle, int count, bool $case);
+int icount(char *haystack, char needle, int count, bool $case);
 ```
 Counts the number of occurrences of `needle` in the first `count` characters of the string `haystack`.
 
 ---
 ```c
-int siCount(char *haystack, char needle, int start, int count, bool $case);
+int iscount(char *haystack, char needle, int start, int count, bool $case);
 ```
 Counts the number of occurrences of `needle` in the string `haystack` starting from the `start` index for `count` characters.
 
 ---
 ```c
-int strCount(char *haystack, char *needle, bool $case);
+int strcount(char *haystack, char *needle, bool $case);
 ```
 Counts the number of occurrences of `needle` (a string) in the string `haystack`.
 
 ---
 ```c
-int strsCount(char *haystack, char *needle, int start, bool $case);
+int strscount(char *haystack, char *needle, int start, bool $case);
 ```
 Finds the number of occurences of `needle` in `haystack` starting from a given `start` position and taking into account case sensitivity
 as specified by `$case` flag.
 
 ---
 ```c
-int striCount(char *haystack, char *needle, int count, bool $case);
+int stricount(char *haystack, char *needle, int count, bool $case);
 ```
 Finds the number of occurences of `needle` in `haystack` for a given number of characters `count` and taking into account case sensitivity
 as specified by `$case` flag.
 
 ---
 ```c
-int strsiCount(char *haystack, char *needle, int start, int count, bool $case);
+int striscount(char *haystack, char *needle, int start, int count, bool $case);
 ```
 Finds the number of occurences of `needle` in `haystack` starting from a given `start` position and searching for a given number of characters `count`,
 taking into account case sensitivity as specified by `$case` flag.
 
 ---
 ```c
-int indexOf(char *str, char lookup, bool $case);
+int indexof(char *str, char lookup, bool $case);
 ```
 Finds the index of a specified character in a string.
 
 ---
 ```c
-int sIndexOf(const char *str, char c, int startIndex, bool $case);
+int sindexof(const char *str, char c, int startIndex, bool $case);
 ```
 Finds the index of a specified character in a string, starting from a specified index.
 
 ---
 ```c
-int iIndexOf(char *str, int count, char value, bool $case);
+int iindexof(char *str, int count, char value, bool $case);
 ```
 Finds the index of a specified character in a string and searching only a specified number of characters.
 
 ---
 ```c
-int siIndexOf(char *str, int startIndex, int count, char value, bool $case);
+int isindexof(char *str, int startIndex, int count, char value, bool $case);
 ```
 Finds the index of a specified character in a string, starting from a specified index and searching only a specified number of characters.
 
 ---
 ```c
-int strIndexOf(const char *str, const char *value, bool $case);
+int strindexof(const char *str, const char *value, bool $case);
 ```
 Finds the index of a specified string in another string.
 
 ---
 ```c
-int strsIndexOf(const char *str, const char *value, int startIndex, bool $case);
+int strsindexof(const char *str, const char *value, int startIndex, bool $case);
 ```
 Finds the index of a specified string in another string, starting from a specified index.
 
 ---
 ```c
-int striIndexOf(char *str, int count, char *value, bool $case);
+int striindexof(char *str, int count, char *value, bool $case);
 ```
 Finds the index of a specified string in a string and searching only a specified number of characters.
 
 ---
 ```c
-int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case);
+int strisindexof(char *str, int startIndex, int count, char *value, bool $case);
 ```
 Finds the index of a specified string within another string, starting from a specified index 
 and searching only a specified number of characters.
 
 ---
 ```c
-int lastIndexOf(char *str, char lookup, bool $case);
+int lastindexof(char *str, char lookup, bool $case);
 ```
 Finds the index of the last occurrence of a specified character in a string.
 
 ---
 ```c
-int sLastIndexOf(const char *str, char value, int startIndex, bool $case);
+int slastindexof(const char *str, char value, int startIndex, bool $case);
 ```
 Finds the index of the last occurrence of a specified character in a string, starting from a specified index.
 
 ---
 ```c
-int iLastIndexOf(const char *str, char value, int count, bool $case);
+int ilastindexof(const char *str, char value, int count, bool $case);
 ```
 Finds the index of the last occurrence of a specified character in a string and searching only a specified number of characters.
 
 ---
 ```c
-int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $case);
+int islastindexof(const char *str, char value, int startIndex, int count, bool $case);
 ```
 Returns the index of the last occurrence of a specified character in a string starting
 from a specified index and searching only a specified number of characters.
 
 ---
 ```c
-int strLastIndexOf(const char *str, const char *value, bool $case);
+int strlastindexof(const char *str, const char *value, bool $case);
 ```
 Finds the index of the last occurrence of a specified string in a string.
 
 ---
 ```c
-int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $case);
+int strslastindexof(const char *str, const char *value, int startIndex, bool $case);
 ```
 Finds the index of the last occurrence of a specified string in a string, starting from a specified index.
 
 ---
 ```c
-int striLastIndexOf(const char *str, const char *value, int count, bool $case);
+int strilastindexof(const char *str, const char *value, int count, bool $case);
 ```
 Finds the index of the last occurrence of a specified string in a string and searching only a specified number of characters..
 
 ---
 ```c
-int strsiLastIndexOf(const char *str, const char *value, int startIndex, int count, bool $case);
+int strislastindexof(const char *str, const char *value, int startIndex, int count, bool $case);
 ```
 Returns the index of the last occurrence of a specified string in a string, starting from
 a specified index and searching only a specified number of characters.

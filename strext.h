@@ -34,7 +34,6 @@ int strnicomp(const char *s1, const char *s2, size_t n);
  */
 char *stristr(char *haystack, char *needle);
 
-
 /**
  * @brief splitc - split a string into an array of strings based on a delimiter
  * @param str: the string to split
@@ -55,7 +54,7 @@ char **splitc(const char *str, char delimiter);
  * the original string, separated by the specified delimiter. The returned array must
  * be freed by the caller.
  */
-char **split(char *str, char *delimiter);
+char **split(char *str, char* delimiter);
 
 /**
  * @brief split_s - split a string into an array of strings based on delimiters
@@ -67,7 +66,6 @@ char **split(char *str, char *delimiter);
  * be freed by the caller.
  */
 char **split_s(char *str, char **delimiters, int delim_count);
-
 
 /**
  * @brief strndup_ - duplicate a string for a specified number of characters
@@ -164,7 +162,7 @@ char *replace(char *haystack, char *needle, char *replacement, int max_replaceme
 * Returns a char pointer to the resulting string. The returned string
 * must be freed by the caller.
 */
-char *replaceLast(const char *str, const char *target, const char *replacement, int count);
+char *replacelast(const char *str, const char *target, const char *replacement, int count);
 
 /**
  * Removes all non-ASCII characters from a string and returns a char pointer.
@@ -173,7 +171,7 @@ char *replaceLast(const char *str, const char *target, const char *replacement, 
  * @return A char pointer representing the output string without non-ASCII characters. The returned string
  * must be freed by the caller.
  */
- char* removeNonAscii(const char* str);
+ char* removenonascii(const char* str);
 
 /**
 * 
@@ -183,7 +181,7 @@ char *replaceLast(const char *str, const char *target, const char *replacement, 
 * @param case A flag indicating whether the comparison should be case sensitive.
 * @return bool True if the string starts with the given prefix, False otherwise.
 */
-bool startsWith(const char *str, const char *pre, bool $case);
+bool startswith(const char *str, const char *pre, bool $case);
 /**
 * 
 * @brief Determines if a string ends with a given suffix string, with case sensitivity based on the provided flag.
@@ -192,7 +190,7 @@ bool startsWith(const char *str, const char *pre, bool $case);
 * @param case A flag indicating whether the comparison should be case sensitive.
 * @return bool True if the string ends with the given suffix, False otherwise.
 */
-bool endsWith(const char *str, const char *suffix, bool $case);
+bool endswith(const char *str, const char *suffix, bool $case);
 /**
 * 
 * @brief Determines if a haystack string contains a given needle string, with case sensitivity based on the provided flag.
@@ -217,7 +215,7 @@ char *insert(char *str, int start, char *value);
 /**
  * Joins an array of `char*`/`char[]`, `int`, `float`, `double` into a single string using a delimiter.
  *
- * @param arr The array of `char*`/`char[]`, `int`, `float`, `double` to join.
+ * @param arr The `char*`/`char[]`, `int`, `float`, `double` of strings to join.
  * @param size The number of strings in the array.
  * @param delim The delimiter to separate the strings.
  * @param t An enum consisting of CHAR, INT, FLOAT, DOUBLE denoting the type of arr
@@ -291,7 +289,7 @@ int count(char *haystack, char needle, bool $case);
  * @param case Whether to perform a case-sensitive or case-insensitive search.
  * @return The number of occurrences of `needle` in `haystack` starting from `start`.
  */
-int sCount(char *haystack, char needle, int start, bool $case);
+int scount(char *haystack, char needle, int start, bool $case);
 
 /**
  * @brief Counts the number of occurrences of `needle` in the first `count` characters of the string `haystack`.
@@ -302,7 +300,7 @@ int sCount(char *haystack, char needle, int start, bool $case);
  * @param case Whether to perform a case-sensitive or case-insensitive search.
  * @return The number of occurrences of `needle` in the first `count` characters of `haystack`.
  */
-int iCount(char *haystack, char needle, int count, bool $case);
+int icount(char *haystack, char needle, int count, bool $case);
 
 /**
  * @brief Counts the number of occurrences of `needle` in the string `haystack` starting
@@ -315,7 +313,7 @@ int iCount(char *haystack, char needle, int count, bool $case);
  * @param case Whether to perform a case-sensitive or case-insensitive search.
  * @return The number of occurrences of `needle` in `haystack` starting from `start` for `count` characters.
  */
-int siCount(char *haystack, char needle, int start, int count, bool $case);
+int iscount(char *haystack, char needle, int start, int count, bool $case);
 
 /**
  * @brief Counts the number of occurrences of `needle` (a string) in the string `haystack`.
@@ -325,7 +323,7 @@ int siCount(char *haystack, char needle, int start, int count, bool $case);
  * @param case Whether to perform a case-sensitive or case-insensitive search.
  * @return The number of occurrences of `needle` in `haystack`.
  */
-int strCount(char *haystack, char *needle, bool $case);
+int strcount(char *haystack, char *needle, bool $case);
 
 /**
  * @brief Finds the number of occurences of `needle` in `haystack`
@@ -339,7 +337,7 @@ int strCount(char *haystack, char *needle, bool $case);
  *
  * @return The number of occurences of `needle` in `haystack`.
  */
-int strsCount(char *haystack, char *needle, int start, bool $case);
+int strscount(char *haystack, char *needle, int start, bool $case);
 
 /**
  * @brief Finds the number of occurences of `needle` in `haystack`
@@ -353,7 +351,7 @@ int strsCount(char *haystack, char *needle, int start, bool $case);
  *
  * @return The number of occurences of `needle` in `haystack`.
  */
-int striCount(char *haystack, char *needle, int count, bool $case);
+int stricount(char *haystack, char *needle, int count, bool $case);
 
 /**
  * @brief Finds the number of occurences of `needle` in `haystack`
@@ -369,7 +367,7 @@ int striCount(char *haystack, char *needle, int count, bool $case);
  *
  * @return The number of occurences of `needle` in `haystack`.
  */
-int strsiCount(char *haystack, char *needle, int start, int count, bool $case);
+int striscount(char *haystack, char *needle, int start, int count, bool $case);
 
 
 /**
@@ -381,7 +379,7 @@ int strsiCount(char *haystack, char *needle, int start, int count, bool $case);
 * @return Returns the index of the first occurrence of the specified character in the string, or -1
 *  if the character is not found.
 */
-int indexOf(char *str, char lookup, bool $case);
+int indexof(char *str, char lookup, bool $case);
 
 /**
 * 
@@ -393,7 +391,7 @@ int indexOf(char *str, char lookup, bool $case);
 * @return Returns the index of the first occurrence of the specified character in the string starting
 *  from the specified index, or -1 if the character is not found.
 */
-int sIndexOf(const char *str, char c, int startIndex, bool $case);
+int sindexof(const char *str, char c, int startIndex, bool $case);
 
 /**
  * Finds the index of a specified character in a string.
@@ -405,7 +403,7 @@ int sIndexOf(const char *str, char c, int startIndex, bool $case);
  *
  * @return The index of the specified character in the string. Returns -1 if the character is not found.
  */
-int iIndexOf(char *str, int count, char value, bool $case);
+int iindexof(char *str, int count, char value, bool $case);
 
 /**
 * 
@@ -418,7 +416,7 @@ int iIndexOf(char *str, int count, char value, bool $case);
 * @return Returns the index of the first occurrence of the specified character in the string
 *  within the specified range, or -1 if the character is not found.
 */
-int siIndexOf(char *str, int startIndex, int count, char value, bool $case);
+int isindexof(char *str, int startIndex, int count, char value, bool $case);
 
 /**
 * 
@@ -429,7 +427,7 @@ int siIndexOf(char *str, int startIndex, int count, char value, bool $case);
 * @return Returns the index of the first occurrence of the specified string in the string,
 *  or -1 if the string is not found.
 */
-int strIndexOf(const char *str, const char *value, bool $case);
+int strindexof(const char *str, const char *value, bool $case);
 
 /**
 * 
@@ -441,7 +439,7 @@ int strIndexOf(const char *str, const char *value, bool $case);
 * @return Returns the index of the first occurrence of the specified string in the string starting
 *  from the specified index, or -1 if the string is not found.
 */
-int strsIndexOf(const char *str, const char *value, int startIndex, bool $case);
+int strsindexof(const char *str, const char *value, int startIndex, bool $case);
 
 /**
  * Finds the index of a specified string in a string.
@@ -453,7 +451,7 @@ int strsIndexOf(const char *str, const char *value, int startIndex, bool $case);
  *
  * @return The index of the specified string in the string. Returns -1 if the string is not found.
  */
-int striIndexOf(char *str, int count, char *value, bool $case);
+int striindexof(char *str, int count, char *value, bool $case);
 
 /**
 * 
@@ -465,7 +463,7 @@ int striIndexOf(char *str, int count, char *value, bool $case);
 * @param case Whether the search should be case-sensitive or not.
 * @return The index of the first occurrence of the value string in the str string, or -1 if the value is not found.
 */
-int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case);
+int strisindexof(char *str, int startIndex, int count, char *value, bool $case);
 
 /**
 * 
@@ -476,7 +474,7 @@ int strsiIndexOf(char *str, int startIndex, int count, char *value, bool $case);
 * @return The index of the last occurrence of the lookup character in the str string,
 *  or -1 if the character is not found.
 */
-int lastIndexOf(char *str, char lookup, bool $case);
+int lastindexof(char *str, char lookup, bool $case);
 
 /**
 * 
@@ -488,7 +486,7 @@ int lastIndexOf(char *str, char lookup, bool $case);
 * @return The index of the last occurrence of the value character in the str string starting
 *  from the startIndex, or -1 if the character is not found.
 */
-int sLastIndexOf(const char *str, char value, int startIndex, bool $case);
+int slastindexof(const char *str, char value, int startIndex, bool $case);
 
 /**
  * Finds the index of the last occurrence of a specified character in a string.
@@ -500,7 +498,7 @@ int sLastIndexOf(const char *str, char value, int startIndex, bool $case);
  *
  * @return The index of the last occurrence of the specified character in the string. Returns -1 if the character is not found.
  */
-int iLastIndexOf(const char *str, char value, int count, bool $case);
+int ilastindexof(const char *str, char value, int count, bool $case);
 
 /**
 * 
@@ -514,7 +512,7 @@ int iLastIndexOf(const char *str, char value, int count, bool $case);
 * @return The index of the last occurrence of the specified character in the input string,
 *  or -1 if the character is not found.
 */
-int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $case);
+int islastindexof(const char *str, char value, int startIndex, int count, bool $case);
 
 /**
 *
@@ -524,7 +522,7 @@ int siLastIndexOf(const char *str, char value, int startIndex, int count, bool $
 *@param case Whether the search should be case-sensitive or not.
 *@return The index of the last occurrence of the value string in the str string, or -1 if the value is not found.
 */
-int strLastIndexOf(const char *str, const char *value, bool $case);
+int strlastindexof(const char *str, const char *value, bool $case);
 
 /**
 * 
@@ -536,7 +534,7 @@ int strLastIndexOf(const char *str, const char *value, bool $case);
 * @return The index of the last occurrence of the value string in the str string starting
 *  from the startIndex, or -1 if the value is not found.
 */
-int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $case);
+int strslastindexof(const char *str, const char *value, int startIndex, bool $case);
 
 /**
  * Finds the index of the last occurrence of a specified string in a string.
@@ -548,7 +546,7 @@ int strsLastIndexOf(const char *str, const char *value, int startIndex, bool $ca
  *
  * @return The index of the last occurrence of the specified string in the string. Returns -1 if the string is not found.
  */
-int striLastIndexOf(const char *str, const char *value, int count, bool $case);
+int strilastindexof(const char *str, const char *value, int count, bool $case);
 
 /**
 * 
@@ -562,4 +560,4 @@ int striLastIndexOf(const char *str, const char *value, int count, bool $case);
 * @return The index of the last occurrence of the specified string in the input string,
 *  or -1 if the string is not found.
 */
-int strsiLastIndexOf(const char *str, const char *value, int startIndex, int count, bool $case);
+int strislastindexof(const char *str, const char *value, int startIndex, int count, bool $case);

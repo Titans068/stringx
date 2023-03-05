@@ -1,7 +1,7 @@
 #include "strext.h"
 
 int main() {
-    char *str = "one,two,three,four,thirty two", *delimiters[] = {",", " "};
+      char *str = "one,two,three,four,thirty two", *delimiters[] = {",", " "};
     int delim_count = sizeof(delimiters) / sizeof(delimiters[0]);
     char **arr1;
     int arr2[] = {1, 2, 3, 4, 5};
@@ -77,24 +77,24 @@ int main() {
     printf("\nORIGINAL:\n%s\n", str);
     str = replace(str, "sea", "lake", -1);
     printf("REPLACED:\n%s\n", str);
-    str = replaceLast(str, "lake", "sea", 1);
+    str = replacelast(str, "lake", "sea", 1);
     printf("REPLACE LAST:\n%s\n", str);
-    str = replaceLast(str, "sh", "c", -1);
+    str = replacelast(str, "sh", "c", -1);
     printf("%s\n", str);
     free(str);
 
     str = "Hello world";
-    printf("\nENDS WITH: \n%d\n%d\n", endsWith(str, "Rld", true), endsWith(str, "foo", true));
-    printf("\n%d\n%d\n", endsWith(str, "Rld", false), endsWith(str, "foo", false));
+    printf("\nENDS WITH: \n%d\n%d\n", endswith(str, "Rld", true), endswith(str, "foo", true));
+    printf("\n%d\n%d\n", endswith(str, "Rld", false), endswith(str, "foo", false));
 
-    printf("\nSTARTS WITH: \n%d\n%d\n", startsWith(str, "Hell", true), startsWith(str, "foo", true));
-    printf("\n%d\n%d\n", startsWith(str, "hell", false), startsWith(str, "foo", false));
+    printf("\nSTARTS WITH: \n%d\n%d\n", startswith(str, "Hell", true), startswith(str, "foo", true));
+    printf("\n%d\n%d\n", startswith(str, "hell", false), startswith(str, "foo", false));
 
-    printf("\nINDEX OF: \n%d\n", indexOf(str, 'O', true));
-    printf("%d\n", indexOf(str, 'O', false));
+    printf("\nINDEX OF: \n%d\n", indexof(str, 'O', true));
+    printf("%d\n", indexof(str, 'O', false));
 
-    printf("\nLAST INDEX OF: \n%d\n", lastIndexOf(str, 'O', true));
-    printf("%d\n", lastIndexOf(str, 'O', false));
+    printf("\nLAST INDEX OF: \n%d\n", lastindexof(str, 'O', true));
+    printf("%d\n", lastindexof(str, 'O', false));
 
     printf("\nCONTAINS:\n%d\n%d\n", contains("Hello world", "pot", true),
            contains("Hello world", "pot", false));
@@ -122,8 +122,8 @@ int main() {
     //free(str);
 
     str = "sea shells on sea shore";
-    printf("\nCOUNT:\n%d\n%d\n", strCount(str, "SH", true),
-           strCount(str, "SH", false));
+    printf("\nCOUNT:\n%d\n%d\n", strcount(str, "SH", true),
+           strcount(str, "SH", false));
     printf("%d\n%d\n", count(str, 'S', true),
            count(str, 'S', false));
 

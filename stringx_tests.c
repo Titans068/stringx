@@ -1,4 +1,4 @@
-#include "strext.h"
+#include "stringx.h"
 
 int main() {
       char *str = "one,two,three,four,thirty two", *delimiters[] = {",", " "};

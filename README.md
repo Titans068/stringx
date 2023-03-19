@@ -1,4 +1,4 @@
-# strext
+# stringx
 ## String Utility Functions
 This library provides a set of functions for manipulating and working with strings in C and adds more functionality to string.h.
 

@@ -294,7 +294,7 @@ Finds the index of the last occurrence of a specified string in a string, starti
 ```c
 int strilastindexof(const char *str, const char *value, int count, bool $case);
 ```
-Finds the index of the last occurrence of a specified string in a string and searching only a specified number of characters..
+Finds the index of the last occurrence of a specified string in a string and searching only a specified number of characters.
 
 ---
 ```c
@@ -303,7 +303,13 @@ int strislastindexof(const char *str, const char *value, int startIndex, int cou
 Returns the index of the last occurrence of a specified string in a string, starting from
 a specified index and searching only a specified number of characters.
 
-#### NAMING CONVENTIONS:
+---
+```c
+char* itoa(int value, char* result, int base) 
+```
+Returns a pointer to the resulting string representation of the integer. This pointer points to the same location as the `result` parameter. The resulting string is null-terminated.
+
+#### FUNCTION NAMING CONVENTIONS:
 - str - function takes in a string as a search term instead of a char
 - s - function searches from the starting index.
 - i - function searches the specified number of characters in a string.

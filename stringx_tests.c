@@ -1,7 +1,7 @@
 #include "stringx.h"
 
 int main() {
-      char *str = "one,two,three,four,thirty two", *delimiters[] = {",", " "};
+    char *str = "one,two,three,four,thirty two", *delimiters[] = {",", " "};
     int delim_count = sizeof(delimiters) / sizeof(delimiters[0]);
     char **arr1;
     int arr2[] = {1, 2, 3, 4, 5};
@@ -136,6 +136,15 @@ int main() {
     str = reverse(str);
     printf("\nREVERSE:\n%s\n", str);
     free(str);
+
+    itoa(0xff, str, 2);
+    printf("\nitoa: 0xff -> %s\n", str);
+
+    itoa(0xff, str, 10);
+    printf("\nitoa: 0xff -> %s\n", str);
+
+    itoa(0b11111111, str, 16);
+    printf("\nitoa: 0xff -> %s\n", str);
 
     return 0;
 }

@@ -561,3 +561,28 @@ int strilastindexof(const char *str, const char *value, int count, bool $case);
 *  or -1 if the string is not found.
 */
 int strislastindexof(const char *str, const char *value, int startIndex, int count, bool $case);
+
+
+/**
+ * Converts an integer to a null-terminated string.
+ *
+ * @param num   The integer value to be converted.
+ * @param result   The character array to store the resulting string.
+ * @param base  The base of the numerical system used for conversion.
+ *              It must be between 2 and 36, inclusive.
+ * @return      A pointer to the resulting string representation of the integer.
+ *              This pointer points to the same location as the `result` parameter.
+ *              The resulting string is null-terminated.
+ *
+ * @note        The function assumes that the `result` array has enough capacity
+ *              to hold the resulting string representation of the integer.
+ *              It is the responsibility of the caller to ensure sufficient space.
+ *              The function does not perform any input validation.
+ *              If an invalid base is provided, the behavior is undefined.
+ *
+ * @example     int num = 42;
+ *              char buffer[10];
+ *              itoa(num, buffer, 10);
+ *              // After the function call, `buffer` contains the string "42"
+ */
+char* itoa(int value, char* result, int base);
